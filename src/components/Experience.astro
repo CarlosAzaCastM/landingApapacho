@@ -1,0 +1,223 @@
+---
+interface Props {
+  whatsappUrl: string;
+}
+
+const { whatsappUrl } = Astro.props;
+
+const specialties = [
+  {
+    name: 'Chile a la Antigua Aguascalientes',
+    tag: 'Legado Hidrocálido',
+    description:
+      'Chile ancho local escalfado en hierbas de olor y piloncillo, relleno de carne, frutos secos y semillas, bañado en nuestra emblemática crema de guayaba.',
+  },
+  {
+    name: 'Mole de Verdolagas con Condoches',
+    tag: 'Receta de Autor',
+    description:
+      'Inspirado en San José de Gracia: chile poblano, hierbas verdes, verdolagas y semillas tostadas a fuego lento, acompañado de condoches horneados en leña.',
+  },
+  {
+    name: 'Chilaquiles Cariñitos & Café de Puchero',
+    tag: 'Desayuno Tradicional',
+    description:
+      'Bañados en salsa cremosa de aguacate o guajillo artesanal con queso fresco, acompañados de nuestro aromático café de olla especiado en barro.',
+  },
+];
+
+const reviews = [
+  {
+    author: 'Reseña destacada en Google Maps',
+    rating: 5,
+    comment:
+      '“Un lugar mágico en el Barrio del Encino. Te sientes como de visita en casa de los abuelos; el sazón del mole y la experiencia de conocer sus túneles subterráneos lo hacen único en Aguascalientes.”',
+    context: 'Cena y recorrido histórico',
+  },
+  {
+    author: 'Comensal local en Google Maps',
+    rating: 5,
+    comment:
+      '“Los desayunos son un verdadero apapacho al corazón. Los chilaquiles, las enmoladas y el café de puchero tienen un sabor auténtico, casero y cuidado en cada detalle.”',
+    context: 'Desayuno en terraza interior',
+  },
+  {
+    author: 'Visitante en Redes Sociales',
+    rating: 5,
+    comment:
+      '“Excelente atención y atmósfera cálida con música en vivo. Ideal para una velada romántica en la cueva subterránea o una comida familiar sin prisas.”',
+    context: 'Velada de fin de semana',
+  },
+];
+---
+
+<!-- Sección: Acerca de / La Experiencia -->
+<section id="experiencia" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <!-- Columna de Texto (Párrafo de Experiencia) -->
+    <div class="lg:col-span-7 space-y-6">
+      <div class="inline-flex items-center gap-2 text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
+        <span class="w-8 h-[1px] bg-apapacho-primary"></span>
+        Nuestra Esencia
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-text leading-tight">
+        Más que una comida, un <span class="italic text-apapacho-primary">apapacho</span> a la memoria y los sentidos
+      </h2>
+
+      <p class="text-base sm:text-lg text-apapacho-text-muted leading-relaxed">
+        Ubicado en una <strong>casona histórica de finales del siglo XVIII</strong> en el emblemático
+        <strong>Barrio del Encino</strong>, <em>APAPACHO</em> nace para rescatar la cocina tradicional hidrocálida con un toque
+        contemporáneo de autor. Nuestro espacio evoca la calidez nostálgica de visitar la casa de los abuelos, donde cada receta se
+        prepara con ingredientes locales como la guayaba de Calvillo, chiles secos y maíz criollo.
+      </p>
+
+      <p class="text-base sm:text-lg text-apapacho-text-muted leading-relaxed">
+        Quienes nos visitan destacan no solo el sazón casero y la hospitalidad de nuestro equipo, sino también la mística única de
+        nuestra finca, que resguarda <strong>antiguos túneles subterráneos restaurados</strong> ideales para cenas íntimas, veladas
+        románticas y noches culturales con música en vivo.
+      </p>
+
+      <!-- Puntos clave en tarjetas sutiles -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
+          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">Siglo XVIII</p>
+          <p class="text-xs text-apapacho-text-muted">Finca histórica con túneles subterráneos en el Encino.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
+          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">100% Local</p>
+          <p class="text-xs text-apapacho-text-muted">Cocina de autor inspirada en los sabores de Aguascalientes.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
+          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">4.8 ★</p>
+          <p class="text-xs text-apapacho-text-muted">Calidez, música en vivo y atención como en casa.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Visual (Tarjeta de Identidad / Casona) -->
+    <div class="lg:col-span-5">
+      <div class="card bg-apapacho-bg-alt border border-apapacho-primary/30 rounded-3xl overflow-hidden shadow-warm">
+        <figure class="relative h-72 sm:h-80 overflow-hidden bg-apapacho-primary">
+          <img
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80"
+            alt="Mesa cálida servida con platillos tradicionales en Apapacho"
+            class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-apapacho-dark/70 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-amber-200">Experiencia Subterránea</p>
+              <p class="font-serif text-lg">La Casona & Los Túneles</p>
+            </div>
+            <img
+              src="/LogoApapacho.jpg"
+              alt="Sello Apapacho"
+              class="w-12 h-12 rounded-full border border-white/70 shadow-md"
+              loading="lazy"
+            />
+          </div>
+        </figure>
+        <div class="card-body p-6 sm:p-8">
+          <h3 class="font-serif text-2xl text-apapacho-text">
+            ¿Buscas una mesa especial o cena en los túneles?
+          </h3>
+          <p class="text-sm text-apapacho-text-muted leading-relaxed">
+            Debido a la alta demanda en fines de semana y espacios íntimos como <em>La Cueva</em>, recomendamos reservar con
+            anticipación vía WhatsApp.
+          </p>
+          <div class="card-actions mt-4">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn bg-apapacho-primary hover:bg-apapacho-primary-dark text-white border-none rounded-full w-full font-medium"
+            >
+              Consultar disponibilidad por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Platillos Insignia -->
+<section id="especialidades" class="py-16 sm:py-24 bg-apapacho-bg-alt/70 border-y border-apapacho-primary/15">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
+        El Legado Culinario
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-apapacho-text mt-2">
+        Sabores que cuentan la historia de Aguascalientes
+      </h2>
+      <p class="text-apapacho-text-muted mt-3 text-sm sm:text-base">
+        Platillos elogiados por nuestros comensales, elaborados al momento con técnicas artesanales.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {
+        specialties.map((item) => (
+          <article class="card bg-apapacho-bg border border-apapacho-primary/25 rounded-3xl shadow-sm hover:shadow-warm transition-all duration-300">
+            <div class="card-body p-7 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="badge bg-apapacho-primary/15 text-apapacho-primary-dark border-none text-xs font-medium px-3 py-2.5 mb-4">
+                  {item.tag}
+                </div>
+                <h3 class="font-serif text-2xl text-apapacho-text mb-3 leading-snug">
+                  {item.name}
+                </h3>
+                <p class="text-sm text-apapacho-text-muted leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+              <div class="pt-6 mt-6 border-t border-apapacho-primary/15 flex items-center justify-between text-xs text-apapacho-primary font-medium">
+                <span>Preparación artesanal</span>
+                <span>★ Favorito de la casa</span>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Reseñas de Comensales -->
+<section id="resenas" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <span class="text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
+      Voces de Nuestra Mesa
+    </span>
+    <h2 class="font-serif text-3xl sm:text-4xl text-apapacho-text mt-2">
+      Lo que dicen quienes nos visitan
+    </h2>
+    <p class="text-apapacho-text-muted mt-3 text-sm sm:text-base">
+      Experiencias reales compartidas en Google Maps y nuestras redes sociales.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+    {
+      reviews.map((review) => (
+        <div class="card bg-apapacho-surface border border-apapacho-primary/20 rounded-3xl p-7 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-apapacho-primary text-lg mb-4" aria-label="5 de 5 estrellas">
+              {'★★★★★'}
+            </div>
+            <p class="text-apapacho-text text-sm sm:text-base italic leading-relaxed mb-6">
+              {review.comment}
+            </p>
+          </div>
+          <div class="border-t border-apapacho-primary/10 pt-4">
+            <p class="font-serif font-semibold text-sm text-apapacho-text">{review.author}</p>
+            <p class="text-xs text-apapacho-text-muted">{review.context}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

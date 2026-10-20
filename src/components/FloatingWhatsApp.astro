@@ -1,0 +1,35 @@
+---
+interface Props {
+  whatsappUrl: string;
+}
+
+const { whatsappUrl } = Astro.props;
+---
+
+<div class="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-50">
+  <div class="tooltip tooltip-left" data-tip="¡Reserva tu mesa por WhatsApp!">
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Reservar mesa en Restaurante Apapacho por WhatsApp"
+      class="btn btn-circle w-14 h-14 sm:w-16 sm:h-16 bg-apapacho-primary hover:bg-apapacho-primary-dark text-white border-2 border-white shadow-warm-lg transition-all duration-300 hover:scale-110 relative group"
+    >
+      <!-- Halo animado sutil -->
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-apapacho-primary opacity-35"></span>
+
+      <!-- Ícono SVG puro de WhatsApp -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-7 h-7 sm:w-8 sm:h-8 relative z-10"
+        aria-hidden="true"
+      >
+        <path
+          d="M12.001 2C6.48 2 2.001 6.48 2.001 12c0 1.766.462 3.49 1.337 5.012L2 22l5.122-1.314A9.956 9.956 0 0 0 12.001 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm5.465 14.122c-.23.646-1.336 1.236-1.855 1.314-.475.071-1.095.101-1.769-.113-.409-.13-.934-.304-1.608-.595-2.831-1.222-4.68-4.072-4.822-4.261-.141-.189-1.152-1.533-1.152-2.924 0-1.391.729-2.075.988-2.358.259-.283.565-.354.753-.354.188 0 .377.002.541.01.174.008.407-.066.636.486.235.566.799 1.958.869 2.1.071.141.118.306.024.495-.094.189-.141.307-.282.472-.141.165-.297.369-.424.495-.141.141-.288.294-.124.577.165.283.732 1.208 1.572 1.957 1.08.963 1.99 1.262 2.273 1.403.283.142.447.118.612-.071.165-.188.706-.825.894-1.108.188-.283.377-.236.636-.141.259.094 1.648.778 1.93.919.283.142.471.212.542.33.07.118.07.684-.16 1.33Z"
+        />
+      </svg>
+    </a>
+  </div>
+</div>

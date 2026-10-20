@@ -1,0 +1,65 @@
+---
+interface Props {
+  facebookUrl: string;
+  mapsUrl: string;
+  whatsappUrl: string;
+}
+
+const { facebookUrl, mapsUrl, whatsappUrl } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-apapacho-dark text-stone-300 border-t border-apapacho-primary/30">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
+      <!-- Marca y Logo -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <img
+          src="/LogoApapacho.jpg"
+          alt="Logo Apapacho"
+          class="w-16 h-16 rounded-full border border-apapacho-primary/60 shadow-md"
+          loading="lazy"
+        />
+        <div>
+          <p class="font-serif text-2xl text-white tracking-[0.15em]">APAPACHO</p>
+          <p class="text-xs sm:text-sm text-stone-400 mt-1">
+            Cocina de Autor e Hidrocálida · Dr. Jesús Díaz de León #441, Barrio del Encino
+          </p>
+        </div>
+      </div>
+
+      <!-- Enlaces Sociales y Reservas -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a
+          href={facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm rounded-full bg-white/10 hover:bg-apapacho-primary text-white border-white/15 font-normal"
+        >
+          Facebook Oficial
+        </a>
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm rounded-full bg-white/10 hover:bg-apapacho-primary text-white border-white/15 font-normal"
+        >
+          Google Maps
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm rounded-full bg-apapacho-primary hover:bg-apapacho-primary-dark text-white border-none font-medium"
+        >
+          Reservar por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 text-center sm:text-left">
+      <p>© {currentYear} Restaurante APAPACHO. Todos los derechos reservados.</p>
+      <p>Aguascalientes, Ags., México · Hecho con calidez para nuestros comensales.</p>
+    </div>
+  </div>
+</footer>

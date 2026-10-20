@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+import LocationHours from '../components/LocationHours.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos verificados del restaurante APAPACHO (Barrio del Encino, Aguascalientes)
+const whatsappPhone = '525566294454';
+const whatsappMessage = encodeURIComponent(
+  '¡Hola APAPACHO! Me gustaría reservar una mesa. ¿Me podrían compartir disponibilidad?'
+);
+const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
+
+const mapsUrl = 'https://maps.app.goo.gl/FgUjnRGGR16cpcux5';
+const facebookUrl = 'https://www.facebook.com/photo/?fbid=122184758546090390&locale=es_LA';
+---
+
+<Layout>
+  <!-- Barra de Navegación con LogoApapacho.jpg -->
+  <Navbar whatsappUrl={whatsappUrl} />
+
+  <!-- Contenido Principal Single Page Application -->
+  <main>
+    <!-- Hero Section con LogoApapacho.jpg, H1 Serif y CTA Principal -->
+    <Hero whatsappUrl={whatsappUrl} />
+
+    <!-- Acerca de / Experiencia, Platillos Insignia y Reseñas -->
+    <Experience whatsappUrl={whatsappUrl} />
+
+    <!-- Ubicación en Barrio del Encino, Horarios y Botón "Cómo llegar" -->
+    <LocationHours whatsappUrl={whatsappUrl} mapsUrl={mapsUrl} />
+  </main>
+
+  <!-- Pie de Página -->
+  <Footer facebookUrl={facebookUrl} mapsUrl={mapsUrl} whatsappUrl={whatsappUrl} />
+
+  <!-- Botón Flotante (Sticky) de WhatsApp en esquina inferior derecha -->
+  <FloatingWhatsApp whatsappUrl={whatsappUrl} />
+</Layout>

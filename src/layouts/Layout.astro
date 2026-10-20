@@ -1,0 +1,88 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'APAPACHO | Cocina de Autor e Hidrocálida en el Barrio del Encino, Aguascalientes',
+  description = 'Un abrazo al corazón en el histórico Barrio del Encino. Descubre nuestra cocina de autor hidrocálida, casona del siglo XVIII y túneles históricos en Aguascalientes. Reserva tu mesa por WhatsApp.',
+} = Astro.props;
+
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'APAPACHO',
+  image: '/LogoApapacho.jpg',
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Dr. Jesús Díaz de León #441, Barrio del Encino',
+    addressLocality: 'Aguascalientes',
+    addressRegion: 'Ags.',
+    postalCode: '20240',
+    addressCountry: 'MX',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 21.8755675,
+    longitude: -102.2927562,
+  },
+  url: 'https://maps.app.goo.gl/FgUjnRGGR16cpcux5',
+  telephone: '+525566294454',
+  servesCuisine: ['Mexicana', 'Hidrocálida de Autor', 'Contemporánea'],
+  priceRange: '$$',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '23:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Sunday',
+      opens: '08:00',
+      closes: '22:00',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '180',
+  },
+};
+---
+
+<!doctype html>
+<html lang="es" data-theme="apapacho" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#AF8F62" />
+    <link rel="icon" type="image/jpeg" href="/LogoApapacho.jpg" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/LogoApapacho.jpg" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Google Fonts: Playfair Display (Serif) & Lato (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Datos Estructurados SEO Local -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  </head>
+  <body class="bg-apapacho-bg text-apapacho-text font-sans antialiased selection:bg-apapacho-primary selection:text-white">
+    <slot />
+  </body>
+</html>
