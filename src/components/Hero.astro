@@ -8,98 +8,181 @@ const { whatsappUrl } = Astro.props;
 
 <section
   id="inicio"
-  class="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-apapacho-dark"
+  class="relative min-h-[88vh] flex items-center overflow-hidden bg-apapacho-profundo text-apapacho-arena"
 >
-  <!-- Imagen de fondo tenue con estética cálida de casona y gastronomía -->
-  <div
-    class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transition-transform duration-1000"
-    style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85');"
-    role="img"
-    aria-label="Ambiente cálido e íntimo de Restaurante Apapacho"
-  >
+  <!-- Fotografía gastronómica oficial de fondo con prioridad de carga (LCP) -->
+  <div class="absolute inset-0 z-0">
+    <picture>
+      <source srcset="/optimized/bendita-comunion.webp" type="image/webp" />
+      <img
+        src="/Comidas/BENDITA COMUNION.jpeg"
+        alt="Mesa servida en Restaurante Apapacho con corte de autor en salsa tradicional, guacamole en cerámica de talavera y vino mexicano"
+        class="w-full h-full object-cover object-center opacity-35 scale-105"
+        width="1920"
+        height="1280"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+    <!-- Velo cromático en Gris profundo (#212121) para garantizar contraste AAA en textos -->
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-apapacho-profundo via-apapacho-profundo/95 to-apapacho-profundo/75"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-apapacho-profundo via-transparent to-apapacho-profundo/80"
+    >
+    </div>
   </div>
 
-  <!-- Doble Overlay: Oscuro cálido + Tono primario camel (#AF8F62) -->
-  <div class="absolute inset-0 bg-gradient-to-b from-apapacho-dark/80 via-apapacho-dark/70 to-[#2A2116]/90"></div>
-  <div class="absolute inset-0 bg-apapacho-primary/25 mix-blend-multiply"></div>
+  <!-- Contenido Principal del Hero -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <!-- Columna Editorial y Llamados a la Acción -->
+      <div class="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+        <!-- Sello Oficial Apapacho -->
+        <div class="mb-7 flex items-center gap-4">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-apapacho-oro shadow-warm-lg bg-apapacho-adobe shrink-0">
+            <picture>
+              <source srcset="/optimized/logo-apapacho.webp" type="image/webp" />
+              <img
+                src="/LogoApapacho.jpg"
+                alt="Emblema de Apapacho Restaurante"
+                class="w-full h-full object-cover"
+                width="96"
+                height="96"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
+          <div class="text-left">
+            <p class="font-sc text-lg sm:text-xl tracking-wide text-apapacho-oro">
+              Apapacho
+            </p>
+            <p class="text-sm sm:text-base text-apapacho-arena/90">
+              Casona del Siglo XVIII · Aguascalientes
+            </p>
+          </div>
+        </div>
 
-  <!-- Contenido Principal Centrado -->
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center flex flex-col items-center">
-    <!-- Logo Apapacho Centrado sobre el Título -->
-    <div class="mb-7 relative group">
-      <div class="absolute -inset-2 rounded-full bg-apapacho-primary/30 blur-md group-hover:bg-apapacho-primary/50 transition duration-500"></div>
-      <div class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/80 shadow-2xl mx-auto bg-apapacho-primary">
-        <img
-          src="/LogoApapacho.jpg"
-          alt="Emblema de Apapacho Restaurante"
-          class="w-full h-full object-cover"
-          width="144"
-          height="144"
-        />
+        <!-- H1 Principal en EB Garamond -->
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-apapacho-blanco font-normal leading-[1.12] tracking-tight max-w-2xl mb-6">
+          Cocina de autor que abraza el alma en el corazón del <span class="text-apapacho-oro font-semibold">Barrio del Encino</span>
+        </h1>
+
+        <!-- Subtítulo descriptivo -->
+        <p class="text-lg sm:text-xl text-apapacho-arena/95 max-w-xl font-normal leading-relaxed mb-9">
+          Sabores hidrocálidos de herencia familiar dentro de una casona histórica del siglo XVIII.
+          Desde desayunos reconfortantes hasta veladas íntimas en nuestros túneles subterráneos.
+        </p>
+
+        <!-- Call to Action Principal -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn min-h-[52px] h-auto py-3.5 bg-apapacho-ladrillo hover:bg-apapacho-oro text-apapacho-profundo border border-apapacho-ladrillo hover:border-apapacho-oro rounded-full px-8 sm:px-9 text-lg font-serif font-semibold tracking-wide shadow-warm-lg transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-5 h-5 shrink-0"
+              aria-hidden="true"
+            >
+              <path
+                d="M12.001 2C6.48 2 2.001 6.48 2.001 12c0 1.766.462 3.49 1.337 5.012L2 22l5.122-1.314A9.956 9.956 0 0 0 12.001 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm5.465 14.122c-.23.646-1.336 1.236-1.855 1.314-.475.071-1.095.101-1.769-.113-.409-.13-.934-.304-1.608-.595-2.831-1.222-4.68-4.072-4.822-4.261-.141-.189-1.152-1.533-1.152-2.924 0-1.391.729-2.075.988-2.358.259-.283.565-.354.753-.354.188 0 .377.002.541.01.174.008.407-.066.636.486.235.566.799 1.958.869 2.1.071.141.118.306.024.495-.094.189-.141.307-.282.472-.141.165-.297.369-.424.495-.141.141-.288.294-.124.577.165.283.732 1.208 1.572 1.957 1.08.963 1.99 1.262 2.273 1.403.283.142.447.118.612-.071.165-.188.706-.825.894-1.108.188-.283.377-.236.636-.141.259.094 1.648.778 1.93.919.283.142.471.212.542.33.07.118.07.684-.16 1.33Z"
+              />
+            </svg>
+            Reserva tu mesa en WhatsApp
+          </a>
+
+          <a
+            href="#ubicacion"
+            class="btn min-h-[52px] h-auto py-3.5 bg-transparent hover:bg-apapacho-arena/15 text-apapacho-arena border border-apapacho-oro/70 hover:border-apapacho-oro rounded-full px-8 text-lg font-serif font-normal transition-colors duration-300"
+          >
+            Ver Ubicación y Horarios
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Distintivo Superior -->
-    <div class="badge bg-white/10 backdrop-blur-sm border-apapacho-primary/50 text-amber-50 px-4 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase mb-6">
-      Barrio del Encino · Aguascalientes
-    </div>
+      <!-- Composición Fotográfica Gastronómica Oficial (Comidas y Desayunos) -->
+      <div class="lg:col-span-5">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <!-- Fotografía Principal: Mesa de Autor Bendita Comunión -->
+          <figure class="rounded-3xl overflow-hidden border-2 border-apapacho-oro/60 shadow-warm-lg bg-apapacho-profundo aspect-[4/5] relative">
+            <picture>
+              <source srcset="/optimized/bendita-comunion.webp" type="image/webp" />
+              <img
+                src="/Comidas/BENDITA COMUNION.jpeg"
+                alt="Platillos insignia de Apapacho: corte de carne en salsa verde de autor, guacamole con ribeye en talavera y vino tinto"
+                class="w-full h-full object-cover"
+                width="800"
+                height="1000"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-apapacho-profundo via-apapacho-profundo/85 to-transparent p-5 pt-12 text-apapacho-arena">
+              <p class="font-serif text-lg sm:text-xl text-apapacho-blanco leading-snug">
+                Bendita Comunión · Cocina de Autor
+              </p>
+              <p class="text-sm text-apapacho-oro mt-0.5">
+                Recetas hidrocálidas para compartir en mesa
+              </p>
+            </figcaption>
+          </figure>
 
-    <!-- H1 Principal en Playfair Display -->
-    <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal leading-tight tracking-wide max-w-3xl mb-6">
-      Cocina de autor que abraza el alma en el corazón del <span class="italic text-[#E2C9A3]">Barrio del Encino</span>
-    </h1>
-
-    <!-- Subtítulo descriptivo -->
-    <p class="text-base sm:text-lg md:text-xl text-stone-200/90 max-w-2xl mx-auto font-light leading-relaxed mb-10">
-      Sabores hidrocálidos de herencia familiar dentro de una casona histórica del siglo XVIII.
-      Desde desayunos reconfortantes hasta veladas íntimas en nuestros túneles subterráneos.
-    </p>
-
-    <!-- Call to Action Principal -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-lg w-full sm:w-auto bg-apapacho-primary hover:bg-apapacho-primary-dark text-white border border-white/20 rounded-full px-8 sm:px-10 text-base sm:text-lg font-medium tracking-wide shadow-warm-lg transition-all duration-300 hover:scale-[1.02]"
-      >
-        <!-- Ícono WhatsApp -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="w-6 h-6 shrink-0"
-          aria-hidden="true"
-        >
-          <path
-            d="M12.001 2C6.48 2 2.001 6.48 2.001 12c0 1.766.462 3.49 1.337 5.012L2 22l5.122-1.314A9.956 9.956 0 0 0 12.001 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm5.465 14.122c-.23.646-1.336 1.236-1.855 1.314-.475.071-1.095.101-1.769-.113-.409-.13-.934-.304-1.608-.595-2.831-1.222-4.68-4.072-4.822-4.261-.141-.189-1.152-1.533-1.152-2.924 0-1.391.729-2.075.988-2.358.259-.283.565-.354.753-.354.188 0 .377.002.541.01.174.008.407-.066.636.486.235.566.799 1.958.869 2.1.071.141.118.306.024.495-.094.189-.141.307-.282.472-.141.165-.297.369-.424.495-.141.141-.288.294-.124.577.165.283.732 1.208 1.572 1.957 1.08.963 1.99 1.262 2.273 1.403.283.142.447.118.612-.071.165-.188.706-.825.894-1.108.188-.283.377-.236.636-.141.259.094 1.648.778 1.93.919.283.142.471.212.542.33.07.118.07.684-.16 1.33Z"
-          />
-        </svg>
-        Reserva tu mesa en WhatsApp
-      </a>
-
-      <a
-        href="#ubicacion"
-        class="btn btn-lg btn-outline w-full sm:w-auto text-white border-white/40 hover:bg-white/10 hover:border-white rounded-full px-8 text-base font-normal"
-      >
-        Ver Ubicación y Horarios
-      </a>
+          <!-- Detalle Gastronómico de Desayuno Tradicional -->
+          <div class="mt-4 bg-apapacho-arena text-apapacho-profundo p-3.5 rounded-2xl border border-apapacho-oro shadow-warm-lg flex items-center gap-4">
+            <picture class="shrink-0">
+              <source srcset="/optimized/carinitos.webp" type="image/webp" />
+              <img
+                src="/Desayunos/CARIÑITOS.jpeg"
+                alt="Desayuno tradicional Chilaquiles Cariñitos con aguacate y jugo de naranja fresco"
+                class="w-16 h-16 rounded-xl object-cover border border-apapacho-adobe/30"
+                width="64"
+                height="64"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <div>
+              <p class="font-serif font-semibold text-base sm:text-lg text-apapacho-profundo leading-tight">
+                Desayunos desde las 8:00 a.m.
+              </p>
+              <p class="text-sm text-apapacho-profundo/85 mt-0.5">
+                Chilaquiles Cariñitos, pan dulce y café de puchero
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Indicadores rápidos de confianza (Reseñas de Google Maps) -->
-    <div class="mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-stone-200 text-xs sm:text-sm">
-      <div class="flex items-center gap-2">
-        <span class="text-[#E2C9A3] text-base">★★★★★</span>
-        <span><strong>4.8 / 5</strong> en valoraciones de comensales</span>
+    <div class="mt-14 pt-8 border-t border-apapacho-oro/30 flex flex-wrap items-center justify-center lg:justify-between gap-6 text-apapacho-arena text-sm sm:text-base">
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-0.5 text-apapacho-oro" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+        </div>
+        <span class="tabular-nums"><strong>4.8 / 5</strong> en valoraciones de comensales</span>
       </div>
-      <div class="hidden sm:block w-1 h-1 rounded-full bg-apapacho-primary"></div>
+      <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-apapacho-oro"></div>
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-apapacho-primary"></span>
-        <span>Casona del Siglo XVIII & Túneles Históricos</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-apapacho-ladrillo"></span>
+        <span>Casona del Siglo XVIII &amp; Túneles Históricos</span>
       </div>
-      <div class="hidden sm:block w-1 h-1 rounded-full bg-apapacho-primary"></div>
+      <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-apapacho-oro"></div>
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-apapacho-primary"></span>
+        <span class="inline-block w-2 h-2 rounded-full bg-apapacho-oro"></span>
         <span>Desayunos, Comidas y Cenas Románticas</span>
       </div>
     </div>
