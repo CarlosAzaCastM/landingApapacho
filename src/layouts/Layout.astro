@@ -55,13 +55,14 @@ const schemaOrg = {
 ---
 
 <!doctype html>
+<!-- impeccable-disable cream-palette -- Color primario oficial de marca Arena suave (#FEF2E7) -->
 <html lang="es" data-theme="apapacho" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#AF8F62" />
+    <meta name="theme-color" content="#A6824C" />
     <link rel="icon" type="image/jpeg" href="/LogoApapacho.jpg" />
 
     <!-- Open Graph / Social -->
@@ -71,18 +72,195 @@ const schemaOrg = {
     <meta property="og:image" content="/LogoApapacho.jpg" />
     <meta property="og:locale" content="es_MX" />
 
-    <!-- Google Fonts: Playfair Display (Serif) & Lato (Sans-Serif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Precarga de tipografía oficial local EB Garamond y fotografía principal (LCP) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/eb-garamond/EBGaramond12-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/eb-garamond/EBGaramond12-Italic.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/eb-garamond/EBGaramondSC12-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/eb-garamond/EBGaramond08-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/optimized/bendita-comunion.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
     />
 
     <!-- Datos Estructurados SEO Local -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
   </head>
-  <body class="bg-apapacho-bg text-apapacho-text font-sans antialiased selection:bg-apapacho-primary selection:text-white">
+  <body class="bg-apapacho-arena text-apapacho-profundo font-sans antialiased selection:bg-apapacho-mayolico selection:text-apapacho-blanco">
     <slot />
   </body>
 </html>
+
+<style is:global>
+  /* Tipografía Oficial de Marca: EB Garamond (12pt, 08pt y Small Caps) */
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('/eb-garamond/EBGaramond12-Regular.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('/eb-garamond/EBGaramond12-Italic.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond 08';
+    src: url('/eb-garamond/EBGaramond08-Regular.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond 08';
+    src: url('/eb-garamond/EBGaramond08-Italic.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond SC';
+    src: url('/eb-garamond/EBGaramondSC12-Regular.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond SC 08';
+    src: url('/eb-garamond/EBGaramondSC08-Regular.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond AllSC';
+    src: url('/eb-garamond/EBGaramond12-AllSC.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    /* Paleta Primaria Oficial */
+    --color-arena-suave: #FEF2E7;
+    --color-adobe: #A6824C;
+    --color-ladrillo: #D7846A;
+
+    /* Paleta Secundaria Oficial */
+    --color-oro: #C29E67;
+    --color-verde-mayolico: #487274;
+    --color-gris-profundo: #212121;
+    --color-blanco-puro: #FFFFFF;
+
+    /* Canales RGB para opacidad en utilidades Tailwind */
+    --rgb-arena-suave: 254 242 231;
+    --rgb-adobe: 166 130 76;
+    --rgb-ladrillo: 215 132 106;
+    --rgb-oro: 194 158 103;
+    --rgb-verde-mayolico: 72 114 116;
+    --rgb-gris-profundo: 33 33 33;
+    --rgb-blanco-puro: 255 255 255;
+
+    color-scheme: light;
+    caret-color: var(--color-verde-mayolico);
+    scrollbar-color: var(--color-adobe) var(--color-arena-suave);
+    scrollbar-width: thin;
+  }
+
+  html {
+    font-family: 'EB Garamond 08', 'EB Garamond', Georgia, serif;
+    background-color: var(--color-arena-suave);
+    color: var(--color-gris-profundo);
+    text-underline-offset: 0.22em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'EB Garamond', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Superficies del navegador personalizadas con la paleta oficial */
+  ::selection {
+    background-color: var(--color-verde-mayolico);
+    color: var(--color-blanco-puro);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-verde-mayolico);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-arena-suave);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-oro);
+    border-radius: 9999px;
+    border: 2px solid var(--color-arena-suave);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-adobe);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.12s !important;
+    }
+  }
+</style>
