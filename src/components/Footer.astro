@@ -3,9 +3,10 @@ interface Props {
   facebookUrl: string;
   mapsUrl: string;
   whatsappUrl: string;
+  instagramUrl: string;
 }
 
-const { facebookUrl, mapsUrl, whatsappUrl } = Astro.props;
+const { facebookUrl, mapsUrl, whatsappUrl, instagramUrl } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -42,7 +43,15 @@ const currentYear = new Date().getFullYear();
           rel="noopener noreferrer"
           class="btn min-h-[44px] h-11 px-5 rounded-full bg-apapacho-arena/10 hover:bg-apapacho-oro hover:text-apapacho-profundo text-apapacho-arena border border-apapacho-oro/40 font-serif text-base font-normal transition-colors"
         >
-          Facebook Oficial
+          Facebook
+        </a>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn min-h-[44px] h-11 px-5 rounded-full bg-apapacho-arena/10 hover:bg-apapacho-oro hover:text-apapacho-profundo text-apapacho-arena border border-apapacho-oro/40 font-serif text-base font-normal transition-colors"
+        >
+          Instagram
         </a>
         <a
           href={mapsUrl}
