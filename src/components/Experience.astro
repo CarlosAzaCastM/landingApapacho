@@ -7,22 +7,64 @@ const { whatsappUrl } = Astro.props;
 
 const specialties = [
   {
-    name: 'Chile a la Antigua Aguascalientes',
+    name: 'Chile a la Antigua & Tesoro de la Casa',
     tag: 'Legado Hidrocálido',
+    imageWebp: '/optimized/tesoro-de-la-casa.webp',
+    imageFallback: '/Comidas/TESORO DE LA CASA.jpeg',
+    imageAlt:
+      'Platillo Tesoro de la Casa con glaseado artesanal de guayaba de Calvillo, ajonjolí tostado y guayabas frescas al fondo',
     description:
-      'Chile ancho local escalfado en hierbas de olor y piloncillo, relleno de carne, frutos secos y semillas, bañado en nuestra emblemática crema de guayaba.',
+      'Recetas que honran la guayaba de Calvillo, los chiles secos escalfados en hierbas de olor y piloncillo, y el sazón profundo de las cocinas familiares de Aguascalientes.',
   },
   {
-    name: 'Mole de Verdolagas con Condoches',
+    name: 'Cate de mi Corazón & Sazón de Autor',
     tag: 'Receta de Autor',
+    imageWebp: '/optimized/cate-de-mi-corazon.webp',
+    imageFallback: '/Comidas/CATE DE MI CORAZÓN.jpeg',
+    imageAlt:
+      'Cazuela de cerámica mayólica con guacamole artesanal, puntas de carne, rábano, jitomate cherry y totopos en canasta',
     description:
-      'Inspirado en San José de Gracia: chile poblano, hierbas verdes, verdolagas y semillas tostadas a fuego lento, acompañado de condoches horneados en leña.',
+      'Entradas para compartir en talavera tradicional y platos fuertes como nuestro Mole de Verdolagas con Condoches horneados en leña, inspirado en San José de Gracia.',
   },
   {
     name: 'Chilaquiles Cariñitos & Café de Puchero',
     tag: 'Desayuno Tradicional',
+    imageWebp: '/optimized/carinitos.webp',
+    imageFallback: '/Desayunos/CARIÑITOS.jpeg',
+    imageAlt:
+      'Chilaquiles Cariñitos con pollo deshebrado, abanico de aguacate fresco, rábanos y vaso de jugo de naranja recién exprimido',
     description:
-      'Bañados en salsa cremosa de aguacate o guajillo artesanal con queso fresco, acompañados de nuestro aromático café de olla especiado en barro.',
+      'Bañados en salsa cremosa artesanal con pollo deshebrado, aguacate fresco y rábano, acompañados de jugo recién exprimido y nuestro aromático café de olla especiado en barro.',
+  },
+];
+
+const breakfastGallery = [
+  {
+    name: 'Abrazo del Día',
+    moment: 'Mañanas en la Casona',
+    imageWebp: '/optimized/abrazo-del-dia.webp',
+    imageFallback: '/Desayunos/ABRAZO DEL DÍA.jpeg',
+    imageAlt:
+      'Desayuno Abrazo del Día: omelette dorado acompañado de papas salteadas, tomates cherry y taza de café negro junto a jarrón de barro',
+    caption: 'Omelette artesanal con papas rústicas a las hierbas y café recién preparado.',
+  },
+  {
+    name: 'Dulce Recuerdo',
+    moment: 'Repostería de Casa',
+    imageWebp: '/optimized/dulce-recuerdo.webp',
+    imageFallback: '/Desayunos/DULCE RECUERDO.jpeg',
+    imageAlt:
+      'Postre matutino Dulce Recuerdo: pan esponjoso con crema montada, reducción cítrica, menta fresca y flor comestible',
+    caption: 'Panadería suave coronada con crema de la casa, notas cítricas y flores del huerto.',
+  },
+  {
+    name: 'Media Naranja',
+    moment: 'Frescura del Día',
+    imageWebp: '/optimized/media-naranja.webp',
+    imageFallback: '/Desayunos/MEDIA NARANJA.jpeg',
+    imageAlt:
+      'Tazón de talavera azul con fruta de temporada Media Naranja: supremas de toronja, naranja y melón con polvo de hierbabuena',
+    caption: 'Supremas de cítricos y fruta de estación perfumadas con azúcar de hierbabuena.',
   },
 ];
 
@@ -56,83 +98,123 @@ const reviews = [
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
     <!-- Columna de Texto (Párrafo de Experiencia) -->
     <div class="lg:col-span-7 space-y-6">
-      <div class="inline-flex items-center gap-2 text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
-        <span class="w-8 h-[1px] bg-apapacho-primary"></span>
-        Nuestra Esencia
-      </div>
-
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-text leading-tight">
-        Más que una comida, un <span class="italic text-apapacho-primary">apapacho</span> a la memoria y los sentidos
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-[1.15]">
+        Más que una comida, un <span class="text-apapacho-mayolico font-semibold">apapacho</span> a la memoria y los sentidos
       </h2>
 
-      <p class="text-base sm:text-lg text-apapacho-text-muted leading-relaxed">
+      <p class="font-sc text-sm tracking-wide text-apapacho-mayolico font-semibold">
+        Nuestra Esencia · Tradición Hidrocálida desde el Siglo XVIII
+      </p>
+
+      <p class="text-lg sm:text-xl text-apapacho-profundo/90 leading-relaxed max-w-xl">
         Ubicado en una <strong>casona histórica de finales del siglo XVIII</strong> en el emblemático
         <strong>Barrio del Encino</strong>, <em>APAPACHO</em> nace para rescatar la cocina tradicional hidrocálida con un toque
         contemporáneo de autor. Nuestro espacio evoca la calidez nostálgica de visitar la casa de los abuelos, donde cada receta se
         prepara con ingredientes locales como la guayaba de Calvillo, chiles secos y maíz criollo.
       </p>
 
-      <p class="text-base sm:text-lg text-apapacho-text-muted leading-relaxed">
+      <p class="text-lg sm:text-xl text-apapacho-profundo/90 leading-relaxed max-w-xl">
         Quienes nos visitan destacan no solo el sazón casero y la hospitalidad de nuestro equipo, sino también la mística única de
         nuestra finca, que resguarda <strong>antiguos túneles subterráneos restaurados</strong> ideales para cenas íntimas, veladas
         románticas y noches culturales con música en vivo.
       </p>
 
-      <!-- Puntos clave en tarjetas sutiles -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
-          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">Siglo XVIII</p>
-          <p class="text-xs text-apapacho-text-muted">Finca histórica con túneles subterráneos en el Encino.</p>
+      <!-- Franja editorial de hitos de identidad -->
+      <dl class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 mt-6 border-t border-apapacho-oro/50">
+        <div class="sm:pr-4 sm:border-r sm:border-apapacho-oro/40">
+          <dt class="font-serif text-2xl sm:text-3xl font-semibold text-apapacho-profundo mb-1">
+            Siglo XVIII
+          </dt>
+          <dd class="text-sm text-apapacho-profundo/80 leading-snug">
+            Finca histórica con túneles subterráneos en el Encino.
+          </dd>
         </div>
-        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
-          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">100% Local</p>
-          <p class="text-xs text-apapacho-text-muted">Cocina de autor inspirada en los sabores de Aguascalientes.</p>
+        <div class="sm:px-2 sm:border-r sm:border-apapacho-oro/40">
+          <dt class="font-serif text-2xl sm:text-3xl font-semibold text-apapacho-profundo mb-1 tabular-nums">
+            100% Local
+          </dt>
+          <dd class="text-sm text-apapacho-profundo/80 leading-snug">
+            Cocina de autor inspirada en los sabores de Aguascalientes.
+          </dd>
         </div>
-        <div class="p-4 rounded-2xl bg-apapacho-surface border border-apapacho-primary/20 shadow-sm">
-          <p class="font-serif text-xl font-semibold text-apapacho-primary mb-1">4.8 ★</p>
-          <p class="text-xs text-apapacho-text-muted">Calidez, música en vivo y atención como en casa.</p>
+        <div class="sm:pl-2">
+          <dt class="font-serif text-2xl sm:text-3xl font-semibold text-apapacho-profundo mb-1 flex items-center gap-1.5 tabular-nums">
+            <span>4.8</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-6 h-6 text-apapacho-adobe"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </dt>
+          <dd class="text-sm text-apapacho-profundo/80 leading-snug">
+            Calidez, música en vivo y atención como en casa.
+          </dd>
         </div>
-      </div>
+      </dl>
     </div>
 
-    <!-- Columna Visual (Tarjeta de Identidad / Casona) -->
+    <!-- Columna Visual: Fotografía Oficial de la Experiencia Subterránea -->
     <div class="lg:col-span-5">
-      <div class="card bg-apapacho-bg-alt border border-apapacho-primary/30 rounded-3xl overflow-hidden shadow-warm">
-        <figure class="relative h-72 sm:h-80 overflow-hidden bg-apapacho-primary">
-          <img
-            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80"
-            alt="Mesa cálida servida con platillos tradicionales en Apapacho"
-            class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-apapacho-dark/70 via-transparent to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-            <div>
-              <p class="text-xs uppercase tracking-widest text-amber-200">Experiencia Subterránea</p>
-              <p class="font-serif text-lg">La Casona & Los Túneles</p>
-            </div>
+      <div class="bg-apapacho-blanco border border-apapacho-oro/50 rounded-3xl overflow-hidden shadow-warm-lg">
+        <figure class="relative h-72 sm:h-80 overflow-hidden bg-apapacho-profundo">
+          <picture>
+            <source srcset="/optimized/apapacho-subterraneo.webp" type="image/webp" />
             <img
-              src="/LogoApapacho.jpg"
-              alt="Sello Apapacho"
-              class="w-12 h-12 rounded-full border border-white/70 shadow-md"
+              src="/apapachoSubterraneo.JPG"
+              alt="Pareja disfrutando una velada íntima con vino en los túneles subterráneos iluminados de Restaurante Apapacho"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              width="900"
+              height="600"
               loading="lazy"
+              decoding="async"
             />
-          </div>
+          </picture>
+          <div class="absolute inset-0 bg-gradient-to-t from-apapacho-profundo/90 via-apapacho-profundo/25 to-transparent"></div>
+          <figcaption class="absolute bottom-4 left-5 right-5 flex items-center justify-between text-apapacho-blanco">
+            <div>
+              <p class="font-sc text-xs uppercase tracking-[0.1em] text-apapacho-oro">
+                Experiencia Subterránea
+              </p>
+              <p class="font-serif text-xl text-apapacho-blanco">
+                La Casona &amp; Los Túneles
+              </p>
+            </div>
+            <picture class="shrink-0">
+              <source srcset="/optimized/logo-apapacho.webp" type="image/webp" />
+              <img
+                src="/LogoApapacho.jpg"
+                alt="Sello Apapacho"
+                class="w-12 h-12 rounded-full border border-apapacho-oro shadow-md"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </figcaption>
         </figure>
-        <div class="card-body p-6 sm:p-8">
-          <h3 class="font-serif text-2xl text-apapacho-text">
+        <div class="p-6 sm:p-8 space-y-4">
+          <h3 class="font-serif text-2xl sm:text-3xl text-apapacho-profundo leading-snug">
             ¿Buscas una mesa especial o cena en los túneles?
           </h3>
-          <p class="text-sm text-apapacho-text-muted leading-relaxed">
+          <p class="text-base text-apapacho-profundo/85 leading-relaxed">
             Debido a la alta demanda en fines de semana y espacios íntimos como <em>La Cueva</em>, recomendamos reservar con
             anticipación vía WhatsApp.
           </p>
-          <div class="card-actions mt-4">
+          <div class="pt-2">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="btn bg-apapacho-primary hover:bg-apapacho-primary-dark text-white border-none rounded-full w-full font-medium"
+              class="btn min-h-[48px] h-auto py-3 bg-apapacho-mayolico hover:bg-apapacho-profundo text-apapacho-blanco border-none rounded-full w-full text-base font-serif font-normal tracking-wide shadow-warm transition-colors duration-300"
             >
               Consultar disponibilidad por WhatsApp
             </a>
@@ -143,80 +225,187 @@ const reviews = [
   </div>
 </section>
 
-<!-- Sección: Platillos Insignia -->
-<section id="especialidades" class="py-16 sm:py-24 bg-apapacho-bg-alt/70 border-y border-apapacho-primary/15">
+<!-- Sección: Platillos Insignia y Desayunos -->
+<section id="especialidades" class="py-20 sm:py-28 bg-apapacho-blanco border-y border-apapacho-oro/35">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
-        El Legado Culinario
-      </span>
-      <h2 class="font-serif text-3xl sm:text-4xl text-apapacho-text mt-2">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-tight">
         Sabores que cuentan la historia de Aguascalientes
       </h2>
-      <p class="text-apapacho-text-muted mt-3 text-sm sm:text-base">
-        Platillos elogiados por nuestros comensales, elaborados al momento con técnicas artesanales.
+      <p class="font-sc text-sm tracking-wide text-apapacho-mayolico font-semibold mt-3">
+        El Legado Culinario · Desayunos y Comidas de Autor
+      </p>
+      <p class="text-apapacho-profundo/85 mt-3 text-base sm:text-lg leading-relaxed">
+        Platillos elogiados por nuestros comensales, elaborados al momento con ingredientes de la región y técnicas artesanales.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+    <!-- Platillos Insignia con Fotografía Oficial -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         specialties.map((item) => (
-          <article class="card bg-apapacho-bg border border-apapacho-primary/25 rounded-3xl shadow-sm hover:shadow-warm transition-all duration-300">
-            <div class="card-body p-7 sm:p-8 flex flex-col justify-between">
-              <div>
-                <div class="badge bg-apapacho-primary/15 text-apapacho-primary-dark border-none text-xs font-medium px-3 py-2.5 mb-4">
-                  {item.tag}
+          <article class="group bg-apapacho-arena border border-apapacho-oro/45 rounded-3xl overflow-hidden shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <figure class="relative aspect-[4/3] overflow-hidden bg-apapacho-profundo">
+                <picture>
+                  <source srcset={item.imageWebp} type="image/webp" />
+                  <img
+                    src={item.imageFallback}
+                    alt={item.imageAlt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <div class="absolute top-3.5 left-3.5">
+                  <span class="inline-block bg-apapacho-profundo/90 text-apapacho-arena font-sc text-xs uppercase tracking-[0.08em] px-3.5 py-1.5 rounded-full border border-apapacho-oro/50">
+                    {item.tag}
+                  </span>
                 </div>
-                <h3 class="font-serif text-2xl text-apapacho-text mb-3 leading-snug">
+              </figure>
+              <div class="p-6 sm:p-7">
+                <h3 class="font-serif text-2xl text-apapacho-profundo mb-2.5 leading-snug">
                   {item.name}
                 </h3>
-                <p class="text-sm text-apapacho-text-muted leading-relaxed">
+                <p class="text-base text-apapacho-profundo/85 leading-relaxed">
                   {item.description}
                 </p>
               </div>
-              <div class="pt-6 mt-6 border-t border-apapacho-primary/15 flex items-center justify-between text-xs text-apapacho-primary font-medium">
-                <span>Preparación artesanal</span>
-                <span>★ Favorito de la casa</span>
-              </div>
+            </div>
+            <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-apapacho-oro/30 flex items-center justify-between text-sm text-apapacho-mayolico font-semibold">
+              <span>Preparación artesanal</span>
+              <span class="inline-flex items-center gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="w-4 h-4 text-apapacho-adobe"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Favorito de la casa
+              </span>
             </div>
           </article>
         ))
       }
     </div>
+
+    <!-- Galería Gastronómica de Desayunos en la Casona -->
+    <div class="mt-16 pt-14 border-t border-apapacho-oro/35">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <h3 class="font-serif text-2xl sm:text-3xl text-apapacho-profundo">
+            Mañanas de Desayuno en el Patio de la Casona
+          </h3>
+          <p class="text-base text-apapacho-profundo/80 mt-1">
+            Servidos todos los días desde las 8:00 a.m. con pan recién horneado, fruta de estación y café de olla.
+          </p>
+        </div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-serif text-base font-semibold text-apapacho-mayolico hover:text-apapacho-profundo min-h-[44px] self-start md:self-auto"
+        >
+          <span>Reservar mesa para desayuno</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {
+          breakfastGallery.map((dish) => (
+            <figure class="group relative rounded-3xl overflow-hidden border border-apapacho-oro/45 bg-apapacho-arena shadow-sm hover:shadow-warm transition-all duration-300">
+              <div class="aspect-[4/3] overflow-hidden bg-apapacho-profundo">
+                <picture>
+                  <source srcset={dish.imageWebp} type="image/webp" />
+                  <img
+                    src={dish.imageFallback}
+                    alt={dish.imageAlt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <figcaption class="p-5 sm:p-6">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <h4 class="font-serif text-xl font-semibold text-apapacho-profundo">
+                    {dish.name}
+                  </h4>
+                  <span class="font-sc text-xs tracking-wider text-apapacho-mayolico font-semibold">
+                    {dish.moment}
+                  </span>
+                </div>
+                <p class="text-sm sm:text-base text-apapacho-profundo/85 leading-relaxed">
+                  {dish.caption}
+                </p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Sección: Reseñas de Comensales -->
-<section id="resenas" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="resenas" class="py-20 sm:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="text-center max-w-2xl mx-auto mb-14">
-    <span class="text-apapacho-primary text-xs uppercase tracking-[0.25em] font-semibold">
-      Voces de Nuestra Mesa
-    </span>
-    <h2 class="font-serif text-3xl sm:text-4xl text-apapacho-text mt-2">
+    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo">
       Lo que dicen quienes nos visitan
     </h2>
-    <p class="text-apapacho-text-muted mt-3 text-sm sm:text-base">
-      Experiencias reales compartidas en Google Maps y nuestras redes sociales.
+    <p class="font-sc text-sm tracking-wide text-apapacho-mayolico font-semibold mt-3">
+      Voces de Nuestra Mesa · Experiencias Reales
+    </p>
+    <p class="text-apapacho-profundo/85 mt-3 text-base sm:text-lg">
+      Reseñas compartidas por nuestros comensales en Google Maps y redes sociales.
     </p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
     {
       reviews.map((review) => (
-        <div class="card bg-apapacho-surface border border-apapacho-primary/20 rounded-3xl p-7 shadow-sm flex flex-col justify-between">
+        <blockquote class="bg-apapacho-blanco border border-apapacho-oro/45 rounded-3xl p-7 sm:p-8 shadow-warm flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-1 text-apapacho-primary text-lg mb-4" aria-label="5 de 5 estrellas">
-              {'★★★★★'}
+            <div class="flex items-center gap-1 text-apapacho-adobe mb-5" aria-label={`${review.rating} de 5 estrellas`}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" /></svg>
             </div>
-            <p class="text-apapacho-text text-sm sm:text-base italic leading-relaxed mb-6">
+            <p class="font-serif text-apapacho-profundo text-lg sm:text-xl italic leading-relaxed mb-6">
               {review.comment}
             </p>
           </div>
-          <div class="border-t border-apapacho-primary/10 pt-4">
-            <p class="font-serif font-semibold text-sm text-apapacho-text">{review.author}</p>
-            <p class="text-xs text-apapacho-text-muted">{review.context}</p>
-          </div>
-        </div>
+          <footer class="border-t border-apapacho-oro/35 pt-4">
+            <cite class="not-italic font-serif font-semibold text-base text-apapacho-profundo block">
+              {review.author}
+            </cite>
+            <span class="text-sm text-apapacho-mayolico font-medium">{review.context}</span>
+          </footer>
+        </blockquote>
       ))
     }
   </div>
