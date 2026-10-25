@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Astro build output and generated types
+dist/
+.astro/
+src/env.d.ts
+
+# Local agent skills & editor directories
+.agent/
+.vscode/
+.idea/
