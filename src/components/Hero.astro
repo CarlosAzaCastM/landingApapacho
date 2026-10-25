@@ -13,7 +13,7 @@ const { whatsappUrl } = Astro.props;
   <!-- Fotografía gastronómica oficial de fondo con prioridad de carga (LCP) -->
   <div class="absolute inset-0 z-0">
     <picture>
-      <source srcset="/optimized/bendita-comunion.webp" type="image/webp" />
+      <source srcset="fotoHeroCasona.webp" type="image/webp" />
       <img
         src="/Comidas/BENDITA COMUNION.jpeg"
         alt="Mesa servida en Restaurante Apapacho con corte de autor en salsa tradicional, guacamole en cerámica de talavera y vino mexicano"
@@ -27,11 +27,11 @@ const { whatsappUrl } = Astro.props;
     </picture>
     <!-- Velo cromático en Gris profundo (#212121) para garantizar contraste AAA en textos -->
     <div
-      class="absolute inset-0 bg-gradient-to-r from-apapacho-profundo via-apapacho-profundo/95 to-apapacho-profundo/75"
+      class="absolute inset-0 bg-gradient-to-r from-apapacho-profundo via-apapacho-profundo/35 to-apapacho-profundo/75"
     >
     </div>
     <div
-      class="absolute inset-0 bg-gradient-to-t from-apapacho-profundo via-transparent to-apapacho-profundo/80"
+      class="absolute inset-0 bg-gradient-to-t from-apapacho-profundo via-transparent to-apapacho-profundo/20"
     >
     </div>
   </div>
@@ -73,7 +73,7 @@ const { whatsappUrl } = Astro.props;
 
         <!-- Subtítulo descriptivo -->
         <p class="text-lg sm:text-xl text-apapacho-arena/95 max-w-xl font-normal leading-relaxed mb-9">
-          Sabores hidrocálidos de herencia familiar dentro de una casona histórica del siglo XVIII.
+          Sabores <strong>100% mexicanos</strong> de herencia familiar dentro de una casona histórica del siglo XVIII.
           Desde desayunos reconfortantes hasta veladas íntimas en nuestros túneles subterráneos.
         </p>
 
@@ -175,12 +175,12 @@ const { whatsappUrl } = Astro.props;
         </div>
         <span class="tabular-nums"><strong>4.8 / 5</strong> en valoraciones de comensales</span>
       </div>
-      <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-apapacho-oro"></div>
+      <div class="hidden sm:block w-1.5 h-1.5"></div>
       <div class="flex items-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-apapacho-ladrillo"></span>
         <span>Casona del Siglo XVIII &amp; Túneles Históricos</span>
       </div>
-      <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-apapacho-oro"></div>
+      <div class="hidden sm:block w-1.5 h-1.5"></div>
       <div class="flex items-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-apapacho-oro"></span>
         <span>Desayunos, Comidas y Cenas Románticas</span>
