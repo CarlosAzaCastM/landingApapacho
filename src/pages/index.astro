@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import ExperiencesCarousel from '../components/ExperiencesCarousel.astro';
 import Experience from '../components/Experience.astro';
 import LocationHours from '../components/LocationHours.astro';
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
@@ -28,7 +29,10 @@ const instagramUrl = 'https://www.instagram.com/apapacho_hidrocalido?xtok=cjI2cG
     <!-- Hero Section con LogoApapacho.jpg, H1 Serif y CTA Principal -->
     <Hero whatsappUrl={whatsappUrl} />
 
-    <!-- Acerca de / Experiencia, Platillos Insignia y Reseñas -->
+    <!-- Nueva Sección de Experiencias en La Casona (inmediatamente debajo del Hero) -->
+    <ExperiencesCarousel />
+
+    <!-- Nuestra Esencia / Nosotros, Platillos Insignia y Reseñas -->
     <Experience whatsappUrl={whatsappUrl} />
 
     <!-- Ubicación en Barrio del Encino, Horarios y Botón "Cómo llegar" -->

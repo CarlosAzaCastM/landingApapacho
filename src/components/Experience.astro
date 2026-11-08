@@ -93,17 +93,24 @@ const reviews = [
 ];
 ---
 
-<!-- Sección: Acerca de / La Experiencia -->
-<section id="experiencia" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-    <!-- Columna de Texto (Párrafo de Experiencia) -->
+<!-- Sección: Nuestra Esencia / Nosotros -->
+<section
+  id="nuestra-esencia"
+  aria-labelledby="nuestra-esencia-heading"
+  class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+>
+  <div id="nosotros" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <!-- Columna de Texto (Nuestra Esencia / Nosotros) -->
     <div class="lg:col-span-7 space-y-6">
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-[1.15]">
-        Más que una comida, un <span class="text-apapacho-mayolico font-semibold">apapacho</span> a la memoria y los sentidos
+      <h2
+        id="nuestra-esencia-heading"
+        class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-[1.15]"
+      >
+        Nuestra Esencia: un <span class="text-apapacho-mayolico font-semibold">apapacho</span> a la memoria y los sentidos
       </h2>
 
       <p class="font-sc text-sm tracking-wide text-apapacho-mayolico font-semibold">
-        Nuestra Esencia · Tradición Hidrocálida desde el Siglo XVIII
+        Nosotros · Tradición Hidrocálida en La Casona del Siglo XVIII
       </p>
 
       <p class="text-lg sm:text-xl text-apapacho-profundo/90 leading-relaxed max-w-xl text-justify">
@@ -114,9 +121,9 @@ const reviews = [
       </p>
 
       <p class="text-lg sm:text-xl text-apapacho-profundo/90 leading-relaxed max-w-xl text-justify">
-        Quienes nos visitan destacan no solo el sazón casero y la hospitalidad de nuestro equipo, sino también la mística única de
-        nuestra finca, que resguarda <strong>antiguos túneles subterráneos restaurados</strong> ideales para cenas íntimas, veladas
-        románticas y noches culturales con música en vivo.
+        Quienes nos visitan destacan el sazón casero, la hospitalidad cercana de nuestro equipo y el carácter único de
+        nuestra finca restaurada, cuyos muros centenarios, patios tradicionales y veladas con música en vivo honran la
+        historia y la identidad cultural de Aguascalientes.
       </p>
 
       <!-- Franja editorial de hitos de identidad -->
@@ -126,7 +133,7 @@ const reviews = [
             Siglo XVIII
           </dt>
           <dd class="text-sm text-apapacho-profundo/80 leading-snug">
-            Finca histórica con túneles subterráneos en el Encino.
+            Finca histórica restaurada en el corazón del Barrio del Encino.
           </dd>
         </div>
         <div class="sm:px-2 sm:border-r sm:border-apapacho-oro/40">
@@ -161,30 +168,27 @@ const reviews = [
       </dl>
     </div>
 
-    <!-- Columna Visual: Fotografía Oficial de la Experiencia Subterránea -->
+    <!-- Columna Visual: Identidad e Historia de La Casona -->
     <div class="lg:col-span-5">
       <div class="bg-apapacho-blanco border border-apapacho-oro/50 rounded-3xl overflow-hidden shadow-warm-lg">
         <figure class="relative h-72 sm:h-80 overflow-hidden bg-apapacho-profundo">
-          <picture>
-            <source srcset="/optimized/apapacho-subterraneo.webp" type="image/webp" />
-            <img
-              src="/apapachoSubterraneo.JPG"
-              alt="Pareja disfrutando una velada íntima con vino en los túneles subterráneos iluminados de Restaurante Apapacho"
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
+          <img
+            src="/optimized/fachada.webp"
+            alt="Patio interior iluminado y arcos históricos de La Casona del siglo XVIII de Restaurante Apapacho en el Barrio del Encino"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            width="900"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
           <div class="absolute inset-0 bg-gradient-to-t from-apapacho-profundo/90 via-apapacho-profundo/25 to-transparent"></div>
           <figcaption class="absolute bottom-4 left-5 right-5 flex items-center justify-between text-apapacho-blanco">
             <div>
-              <p class="font-sc text-xs uppercase tracking-[0.1em] text-apapacho-oro">
-                Experiencia Subterránea
-              </p>
               <p class="font-serif text-xl text-apapacho-blanco">
-                La Casona &amp; Los Túneles
+                La Casona del Siglo XVIII
+              </p>
+              <p class="font-sc text-xs uppercase tracking-[0.1em] text-apapacho-oro mt-0.5">
+                Patrimonio e Identidad · Barrio del Encino
               </p>
             </div>
             <picture class="shrink-0">
@@ -201,24 +205,14 @@ const reviews = [
             </picture>
           </figcaption>
         </figure>
-        <div class="p-6 sm:p-8 space-y-4">
+        <div class="p-6 sm:p-8 space-y-3">
           <h3 class="font-serif text-2xl sm:text-3xl text-apapacho-profundo leading-snug">
-            ¿Buscas una mesa especial o cena en los túneles?
+            Un rincón con historia y hospitalidad hidrocálida
           </h3>
           <p class="text-base text-apapacho-profundo/85 leading-relaxed text-justify">
-            Debido a la alta demanda en fines de semana y espacios íntimos como <em>La Cueva</em>, recomendamos reservar con
-            anticipación vía WhatsApp.
+            Cada rincón de nuestra casa conserva la arquitectura tradicional del Barrio del Encino, ofreciendo un espacio
+            acogedor donde la tradición culinaria y la convivencia familiar son protagonistas.
           </p>
-          <div class="pt-2">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn min-h-[48px] h-auto py-3 bg-apapacho-mayolico hover:bg-apapacho-profundo text-apapacho-blanco border-none rounded-full w-full text-base font-serif font-normal tracking-wide shadow-warm transition-colors duration-300"
-            >
-              Consultar disponibilidad por WhatsApp
-            </a>
-          </div>
         </div>
       </div>
     </div>
