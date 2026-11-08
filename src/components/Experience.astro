@@ -5,66 +5,69 @@ interface Props {
 
 const { whatsappUrl } = Astro.props;
 
-const specialties = [
-  {
-    name: 'Chile a la Antigua & Tesoro de la Casa',
-    tag: 'Legado Hidrocálido',
-    imageWebp: '/optimized/tesoro-de-la-casa.webp',
-    imageFallback: '/Comidas/TESORO DE LA CASA.jpeg',
-    imageAlt:
-      'Platillo Tesoro de la Casa con glaseado artesanal de guayaba de Calvillo, ajonjolí tostado y guayabas frescas al fondo',
-    description:
-      'Recetas que honran la guayaba de Calvillo, los chiles secos escalfados en hierbas de olor y piloncillo, y el sazón profundo de las cocinas familiares de Aguascalientes.',
-  },
-  {
-    name: 'Cate de mi Corazón & Sazón de Autor',
-    tag: 'Receta de Autor',
-    imageWebp: '/optimized/cate-de-mi-corazon.webp',
-    imageFallback: '/Comidas/CATE DE MI CORAZÓN.jpeg',
-    imageAlt:
-      'Cazuela de cerámica mayólica con guacamole artesanal, puntas de carne, rábano, jitomate cherry y totopos en canasta',
-    description:
-      'Entradas para compartir en talavera tradicional y platos fuertes como nuestro Mole de Verdolagas con Condoches horneados en leña, inspirado en San José de Gracia.',
-  },
-  {
-    name: 'Chilaquiles Cariñitos & Café de Puchero',
-    tag: 'Desayuno Tradicional',
-    imageWebp: '/optimized/carinitos.webp',
-    imageFallback: '/Desayunos/CARIÑITOS.jpeg',
-    imageAlt:
-      'Chilaquiles Cariñitos con pollo deshebrado, abanico de aguacate fresco, rábanos y vaso de jugo de naranja recién exprimido',
-    description:
-      'Bañados en salsa cremosa artesanal con pollo deshebrado, aguacate fresco y rábano, acompañados de jugo recién exprimido y nuestro aromático café de olla especiado en barro.',
-  },
-];
+interface MenuCard {
+  id: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  scheduleHint: string;
+  ctaLabel: string;
+  pdfUrl: string;
+  coverWebp: string;
+  coverFallback: string;
+  coverAlt: string;
+  coverBg: string;
+  featured?: boolean;
+}
 
-const breakfastGallery = [
+const menus: MenuCard[] = [
   {
-    name: 'Abrazo del Día',
-    moment: 'Mañanas en la Casona',
-    imageWebp: '/optimized/abrazo-del-dia.webp',
-    imageFallback: '/Desayunos/ABRAZO DEL DÍA.jpeg',
-    imageAlt:
-      'Desayuno Abrazo del Día: omelette dorado acompañado de papas salteadas, tomates cherry y taza de café negro junto a jarrón de barro',
-    caption: 'Omelette artesanal con papas rústicas a las hierbas y café recién preparado.',
+    id: 'desayunos',
+    name: 'Desayunos',
+    subtitle: 'Mañanas en La Casona · Desde las 8:00 a.m.',
+    description:
+      'Chilaquiles artesanales, enmoladas caseras, pan recién horneado, fruta de estación y nuestro tradicional café de puchero en el patio histórico.',
+    scheduleHint: 'Todos los días desde las 8:00 a.m.',
+    ctaLabel: 'Ver menú',
+    pdfUrl: 'https://drive.google.com/file/d/1OBW64wj0ddP7eTgC72ebbxVOfsiaJZ9M/view?usp=sharing',
+    coverWebp: '/optimized/portada-desayunos.webp',
+    coverFallback: '/optimized/portada-desayunos.png',
+    coverAlt:
+      'Portada oficial del menú de Desayunos de Restaurante Apapacho en tono terracota con ornamentos clásicos y emblema Apapacho Aguascalientes México',
+    coverBg: '#D17F66',
+    featured: false,
   },
   {
-    name: 'Dulce Recuerdo',
-    moment: 'Repostería de Casa',
-    imageWebp: '/optimized/dulce-recuerdo.webp',
-    imageFallback: '/Desayunos/DULCE RECUERDO.jpeg',
-    imageAlt:
-      'Postre matutino Dulce Recuerdo: pan esponjoso con crema montada, reducción cítrica, menta fresca y flor comestible',
-    caption: 'Panadería suave coronada con crema de la casa, notas cítricas y flores del huerto.',
+    id: 'hidrocalido',
+    name: 'Hidrocálido',
+    subtitle: 'Legado Hidrocálido · Menú Insignia de Autor',
+    description:
+      'Un homenaje a las raíces gastronómicas de Aguascalientes: recetas de herencia familiar inspiradas en los sabores e ingredientes endémicos de nuestros municipios.',
+    scheduleHint: 'Especialidades de temporada y tradición',
+    ctaLabel: 'Consultar menú',
+    pdfUrl: 'https://drive.google.com/file/d/1N3rnrUgAq4VCIAboiFM9XOuQEwyyEYVK/view?usp=sharing',
+    coverWebp: '/optimized/portada-hidrocalido.webp',
+    coverFallback: '/optimized/portada-hidrocalido.png',
+    coverAlt:
+      'Portada oficial del menú Legado Hidrocálido de Restaurante Apapacho con detalles dorados, sello superior y lema Sabor que acaricia el Alma',
+    coverBg: '#FBF0E4',
+    featured: true,
   },
   {
-    name: 'Media Naranja',
-    moment: 'Frescura del Día',
-    imageWebp: '/optimized/media-naranja.webp',
-    imageFallback: '/Desayunos/MEDIA NARANJA.jpeg',
-    imageAlt:
-      'Tazón de talavera azul con fruta de temporada Media Naranja: supremas de toronja, naranja y melón con polvo de hierbabuena',
-    caption: 'Supremas de cítricos y fruta de estación perfumadas con azúcar de hierbabuena.',
+    id: 'comidas',
+    name: 'Comidas',
+    subtitle: 'Tardes y Veladas · Cocina de Autor',
+    description:
+      'Entradas para compartir en talavera, moles tradicionales, cortes selectos y platillos de autor pensados para disfrutar sin prisas en nuestra casona.',
+    scheduleHint: 'Comidas y cenas todos los días',
+    ctaLabel: 'Ver menú',
+    pdfUrl: 'https://drive.google.com/file/d/1-ZJ0UtI0bUCPf8ur1-x9fWeJm_O3k7Dy/view?usp=sharing',
+    coverWebp: '/optimized/portada-comidas.webp',
+    coverFallback: '/optimized/portada-comidas.png',
+    coverAlt:
+      'Portada oficial del menú de Comidas de Restaurante Apapacho en tono verde mayólico con ornamentos blancos y emblema Cocina de Autor',
+    coverBg: '#546E70',
+    featured: false,
   },
 ];
 
@@ -219,146 +222,167 @@ const reviews = [
   </div>
 </section>
 
-<!-- Sección: Platillos Insignia y Desayunos -->
-<section id="especialidades" class="py-20 sm:py-28 bg-apapacho-blanco border-y border-apapacho-oro/35">
+<!-- Sección: Nuestros Menús -->
+<section
+  id="especialidades"
+  aria-labelledby="nuestros-menus-heading"
+  class="py-20 sm:py-28 bg-apapacho-blanco border-y border-apapacho-oro/35"
+>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-tight">
-        Sabores que cuentan la historia de Aguascalientes
+    <!-- Encabezado de Sección -->
+    <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+      <h2
+        id="nuestros-menus-heading"
+        class="font-serif text-3xl sm:text-4xl md:text-5xl text-apapacho-profundo leading-tight"
+      >
+        Nuestros <span class="text-apapacho-mayolico font-semibold">Menús</span>
       </h2>
       <p class="font-sc text-sm tracking-wide text-apapacho-mayolico font-semibold mt-3">
-        El Legado Culinario · Desayunos y Comidas de Autor
+        El Legado Culinario · Desayunos, Hidrocálido y Comidas de Autor
       </p>
       <p class="text-apapacho-profundo/85 mt-3 text-base sm:text-lg leading-relaxed">
-        Platillos elogiados por nuestros comensales, elaborados al momento con ingredientes de la región y técnicas artesanales.
+        Explora nuestras cartas completas y descubre las recetas que honran la tradición gastronómica de Aguascalientes en cada momento del día.
       </p>
     </div>
 
-    <!-- Platillos Insignia con Fotografía Oficial -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Tres Tarjetas de Menús: Desayunos (izq) · Hidrocálido (centro, principal) · Comidas (der) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5 lg:gap-8 items-stretch pt-2 pb-4">
       {
-        specialties.map((item) => (
-          <article class="group bg-apapacho-arena border border-apapacho-oro/45 rounded-3xl overflow-hidden shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between">
+        menus.map((menu) => (
+          <article
+            class:list={[
+              'group relative max-w-md md:max-w-none mx-auto w-full rounded-3xl overflow-hidden transition-all duration-500 ease-out flex flex-col justify-between',
+              menu.featured
+                ? 'bg-apapacho-profundo text-apapacho-arena border-2 border-apapacho-oro shadow-warm-lg md:-translate-y-3 hover:-translate-y-1.5 md:hover:-translate-y-4 z-10'
+                : 'bg-apapacho-arena text-apapacho-profundo border border-apapacho-oro/50 shadow-warm hover:shadow-warm-lg hover:-translate-y-1.5',
+            ]}
+          >
             <div>
-              <figure class="relative aspect-[4/3] overflow-hidden bg-apapacho-profundo">
-                <picture>
-                  <source srcset={item.imageWebp} type="image/webp" />
-                  <img
-                    src={item.imageFallback}
-                    alt={item.imageAlt}
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    width="600"
-                    height="450"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-                <div class="absolute top-3.5 left-3.5">
-                  <span class="inline-block bg-apapacho-profundo/90 text-apapacho-arena font-sc text-xs uppercase tracking-[0.08em] px-3.5 py-1.5 rounded-full border border-apapacho-oro/50">
-                    {item.tag}
-                  </span>
-                </div>
-              </figure>
-              <div class="p-6 sm:p-7">
-                <h3 class="font-serif text-2xl text-apapacho-profundo mb-2.5 leading-snug">
-                  {item.name}
+              <!-- Portada Original del Menú (sin recortes ni deformación) -->
+              <a
+                href={menu.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
+                class="block overflow-hidden focus:outline-none"
+              >
+                <figure
+                  class="relative aspect-[17/22] w-full overflow-hidden border-b border-apapacho-oro/35"
+                  style={`background-color: ${menu.coverBg};`}
+                >
+                  <picture>
+                    <source srcset={menu.coverWebp} type="image/webp" />
+                    <img
+                      src={menu.coverFallback}
+                      alt={menu.coverAlt}
+                      class="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      width="1200"
+                      height="1553"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                </figure>
+              </a>
+
+              <!-- Información Editorial de la Carta -->
+              <div class="p-6 sm:p-7 md:p-5 lg:p-7">
+                <h3
+                  class:list={[
+                    'font-serif text-2xl lg:text-3xl leading-snug',
+                    menu.featured ? 'text-apapacho-blanco font-semibold' : 'text-apapacho-profundo',
+                  ]}
+                >
+                  {menu.name}
                 </h3>
-                <p class="text-base text-apapacho-profundo/85 leading-relaxed">
-                  {item.description}
+
+                <p
+                  class:list={[
+                    'font-sc text-xs lg:text-sm tracking-wide font-semibold mt-1.5',
+                    menu.featured ? 'text-apapacho-oro' : 'text-apapacho-mayolico',
+                  ]}
+                >
+                  {menu.subtitle}
+                </p>
+
+                <p
+                  class:list={[
+                    'text-sm lg:text-base leading-relaxed mt-3.5 text-justify',
+                    menu.featured ? 'text-apapacho-arena/90' : 'text-apapacho-profundo/85',
+                  ]}
+                >
+                  {menu.description}
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-apapacho-oro/30 flex items-center justify-between text-sm text-apapacho-mayolico font-semibold">
-              <span>Preparación artesanal</span>
-              <span class="inline-flex items-center gap-1">
+
+            <!-- Pie de Tarjeta y Botón para Abrir el PDF en Nueva Pestaña -->
+            <div
+              class:list={[
+                'px-6 sm:px-7 md:px-5 lg:px-7 pb-6 sm:pb-7 md:pb-5 lg:pb-7 pt-4 border-t flex flex-col gap-3.5',
+                menu.featured ? 'border-apapacho-oro/30' : 'border-apapacho-oro/35',
+              ]}
+            >
+              <a
+                href={menu.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${menu.ctaLabel} de ${menu.name} (se abre en una nueva pestaña)`}
+                class:list={[
+                  'btn min-h-[48px] h-auto py-3 px-5 lg:px-6 w-full rounded-full font-serif text-base lg:text-lg tracking-wide transition-all duration-300 flex items-center justify-between',
+                  menu.featured
+                    ? 'bg-apapacho-oro hover:bg-apapacho-ladrillo text-apapacho-profundo border border-apapacho-oro hover:border-apapacho-ladrillo font-semibold shadow-warm'
+                    : 'bg-apapacho-mayolico hover:bg-apapacho-profundo text-apapacho-blanco border border-apapacho-mayolico hover:border-apapacho-profundo font-normal shadow-warm',
+                ]}
+              >
+                <span>{menu.ctaLabel}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-apapacho-adobe"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                    clip-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
                   />
                 </svg>
-                Favorito de la casa
-              </span>
+              </a>
             </div>
           </article>
         ))
       }
     </div>
 
-    <!-- Galería Gastronómica de Desayunos en la Casona -->
-    <div class="mt-16 pt-14 border-t border-apapacho-oro/35">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <h3 class="font-serif text-2xl sm:text-3xl text-apapacho-profundo">
-            Mañanas de Desayuno en el Patio de la Casona
-          </h3>
-          <p class="text-base text-apapacho-profundo/80 mt-1">
-            Servidos todos los días desde las 8:00 a.m. con pan recién horneado, fruta de estación y café de olla.
-          </p>
-        </div>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 font-serif text-base font-semibold text-apapacho-mayolico hover:text-apapacho-profundo min-h-[44px] self-start md:self-auto"
+    <!-- Cintillo Editorial de Reservación -->
+    <div class="mt-12 pt-8 border-t border-apapacho-oro/35 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <p class="text-base sm:text-lg text-apapacho-profundo/85 font-serif">
+        Servimos desayunos todos los días desde las <strong>8:00 a.m.</strong>, comidas de autor y veladas en La Casona.
+      </p>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 font-serif text-base sm:text-lg font-semibold text-apapacho-mayolico hover:text-apapacho-profundo min-h-[44px] shrink-0 transition-colors"
+      >
+        <span>Reservar mesa en WhatsApp</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-4 h-4"
+          aria-hidden="true"
         >
-          <span>Reservar mesa para desayuno</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-4 h-4"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        {
-          breakfastGallery.map((dish) => (
-            <figure class="group relative rounded-3xl overflow-hidden border border-apapacho-oro/45 bg-apapacho-arena shadow-sm hover:shadow-warm transition-all duration-300">
-              <div class="aspect-[4/3] overflow-hidden bg-apapacho-profundo">
-                <picture>
-                  <source srcset={dish.imageWebp} type="image/webp" />
-                  <img
-                    src={dish.imageFallback}
-                    alt={dish.imageAlt}
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    width="600"
-                    height="450"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-              <figcaption class="p-5 sm:p-6">
-                <div class="flex items-center justify-between gap-2 mb-1.5">
-                  <h4 class="font-serif text-xl font-semibold text-apapacho-profundo">
-                    {dish.name}
-                  </h4>
-                  <span class="font-sc text-xs tracking-wider text-apapacho-mayolico font-semibold">
-                    {dish.moment}
-                  </span>
-                </div>
-                <p class="text-sm sm:text-base text-apapacho-profundo/85 leading-relaxed">
-                  {dish.caption}
-                </p>
-              </figcaption>
-            </figure>
-          ))
-        }
-      </div>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
