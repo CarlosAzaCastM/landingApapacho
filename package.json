@@ -10,8 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/tailwind": "^5.1.2",
-    "astro": "^4.16.18",
+    "astro": "^7.4.11",
     "daisyui": "^4.12.14",
     "tailwindcss": "^3.4.17"
   }
